@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Inicio from "../views/Inicio.vue";
+import Registro from "../views/Registro.vue"
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/Inicio',
     name: 'Inicio',
     components: {main: Inicio}
+  },
+  {
+    path: '/Registro',
+    name: 'Registro',
+    components: {main: Registro}
   },
 ]
 
