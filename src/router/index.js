@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< Updated upstream
 import Inicio from "@/views/Inicio";
+=======
+import Inicio from "../views/Inicio.vue";
+>>>>>>> Stashed changes
 
 Vue.use(VueRouter)
 
