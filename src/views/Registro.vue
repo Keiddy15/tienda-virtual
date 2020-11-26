@@ -36,7 +36,7 @@
                     </v-text-field>
                     <v-text-field
                         label="Pais:"
-                        v-model="Pais"
+                        v-model="pais"
                         :rules="paisReglas"
                         required
                     >
