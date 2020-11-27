@@ -1,16 +1,15 @@
 <template>
   <v-app class="Inicio" >
+    <app_bar/>
     <v-img
       src="@/assets/img/inicio.png"
       width="auto"
       height="400"  
       class="my-5"
     >
-      <v-row justify="start" >
-          <v-col md="auto" >
-              <v-btn justify="center" align="center" color="white">Hazte miembro</v-btn> 
-          </v-col>
-      </v-row>
+      <v-flex class="unirse justify-center" >
+        <v-btn class="ml-9 " color="white">Hazte miembro</v-btn>
+      </v-flex>
     </v-img>
     <v-parallax 
       src="@/assets/img/navidad.jpg" 
@@ -47,10 +46,15 @@
 <script>
 
 import cards from "@/components/cards.vue";
+import app_bar from "@/components/app_bar.vue";
 export default {
   name: 'Inicio',
   components: {
-    cards
+    cards,app_bar
   }
 }
 </script>
+
+<style scoped>
+
+</style>
