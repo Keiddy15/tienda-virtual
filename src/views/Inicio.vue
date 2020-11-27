@@ -1,5 +1,6 @@
 <template>
   <v-app class="Inicio" >
+    <v-card>
     <app_bar/>
     <v-img
       src="@/assets/img/inicio.png"
@@ -7,9 +8,7 @@
       height="400"  
       class="my-5"
     >
-      <v-flex class="unirse justify-center" >
-        <v-btn class="ml-9 " color="white">Hazte miembro</v-btn>
-      </v-flex>
+    <v-btn class="ml-9 button"  color="white">Hazte miembro</v-btn>
     </v-img>
     <v-parallax 
       src="@/assets/img/navidad.jpg" 
@@ -39,7 +38,7 @@
       </v-row>
     </v-parallax>
     <cards/>
-    
+    </v-card> 
   </v-app>
 </template>
 
@@ -56,5 +55,9 @@ export default {
 </script>
 
 <style scoped>
-
+.button{
+  position:relative;
+  left:122px;
+  top: 350px;
+}
 </style>
