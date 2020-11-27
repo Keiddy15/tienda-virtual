@@ -1,25 +1,60 @@
 <template>
-  <v-app class="Inicio">
-    
+  <v-app class="Inicio" >
+    <app_bar/>
+    <v-img
+      src="@/assets/img/inicio.png"
+      width="auto"
+      height="400"  
+      class="my-5"
+    >
+      <v-flex class="unirse justify-center" >
+        <v-btn class="ml-9 " color="white">Hazte miembro</v-btn>
+      </v-flex>
+    </v-img>
     <v-parallax 
-    src="https://lp2.hm.com/hmgoepprod?set=width[1280],quality[80],options[limit]&source=url[https://www2.hm.com/content/dam/home_s02/october_2020/7082f/7082F-3x2-gift-wrapping.jpg]&scale=width[global.width],height[15000],options[global.options]&sink=format[jpg],quality[global.quality]"
-    ></v-parallax>
-
-    
-    
-
-
+      src="@/assets/img/navidad.jpg" 
+      class="ma-5"
+    >
+      <v-row class="pt-16" justify="center" align="center">
+          <v-col class="text-center pt-16" cols="auto">
+            <h1 class="mt-5">YA LLEGO LA NAVIDAD!</h1>
+            <p>Disfruta de la mejor temporada para regalar</p>
+          </v-col>
+        </v-row>
+      <v-row justify="center" align="start">
+        <v-col cols="auto">
+          <v-btn class="ma-2" outlined color="white">
+            Mujer
+          </v-btn>
+          <v-btn class="ma-2" outlined color="white">
+            Hombre
+          </v-btn>
+          <v-btn class="ma-2" outlined color="white">
+            Niño
+          </v-btn>
+          <v-btn class="ma-2" outlined color="white">
+            Niña
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-parallax>
+    <cards/>
     
   </v-app>
 </template>
 
 <script>
 
-
+import cards from "@/components/cards.vue";
+import app_bar from "@/components/app_bar.vue";
 export default {
   name: 'Inicio',
   components: {
-    
+    cards,app_bar
   }
 }
 </script>
+
+<style scoped>
+
+</style>
