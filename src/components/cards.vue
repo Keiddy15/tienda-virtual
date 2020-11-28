@@ -14,7 +14,7 @@
                     >
                         <v-row justify="center">
                             <v-col md="auto">
-                                <v-btn color="white">Compra Ahora</v-btn> 
+                                <v-btn @click="mujer" color="white">Compra Ahora</v-btn> 
                             </v-col>
                         </v-row>
                     </v-img>
@@ -26,7 +26,7 @@
                     >   
                         <v-row justify="center">
                             <v-col md="auto">
-                                <v-btn   color="white">Compra Ahora</v-btn> 
+                                <v-btn @click="hombre"  color="white">Compra Ahora</v-btn> 
                             </v-col>
                         </v-row>
                         
@@ -39,7 +39,15 @@
 
 <script>
     export default {
-        name: "cards"
+        name: "cards",
+        methods: {
+            hombre() {
+                this.$router.push({name: 'Hombre'});
+            },
+            mujer() {
+                this.$router.push({name: 'Mujer'});
+            },
+        }
     }
 </script>
 

@@ -1,14 +1,14 @@
 <template>
   <v-app class="Inicio" >
-    <v-card>
-    <app_bar/>
+    
+    <APP_BAR/>
     <v-img
       src="@/assets/img/inicio.png"
       width="auto"
       height="400"  
-      class="my-5"
+      class="mb-5"
     >
-    <v-btn class="ml-9 button"  color="white">Hazte miembro</v-btn>
+    <v-btn @click="registrar" class="ml-9 button" dark outlined>Hazte miembro</v-btn>
     </v-img>
     <v-parallax 
       src="@/assets/img/navidad.jpg" 
@@ -38,19 +38,25 @@
       </v-row>
     </v-parallax>
     <cards/>
-    </v-card> 
+    <FOOTER/>
   </v-app>
 </template>
 
 <script>
 
 import cards from "@/components/cards.vue";
-import app_bar from "@/components/app_bar.vue";
+import APP_BAR from "@/components/app_bar.vue";
+import FOOTER from "@/components/footer.vue";
 export default {
   name: 'Inicio',
   components: {
-    cards,app_bar
-  }
+    cards,APP_BAR,FOOTER
+  },
+  methods: {
+            registrar() {
+                this.$router.push({name: 'Registro'});
+            },
+        }
 }
 </script>
 
