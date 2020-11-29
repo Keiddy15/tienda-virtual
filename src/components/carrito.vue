@@ -5,7 +5,7 @@
       <ul>
         <li v-for="item in carroItem" :key="item.id">
           {{item.nombre}} {{item.src}} {{item.precio}} {{item.cantidad}}
-
+          
         </li>
       </ul>
     </div>

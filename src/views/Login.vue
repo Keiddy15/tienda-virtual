@@ -1,5 +1,6 @@
 <template>
     <v-app class="main">
+        <APP_BAR/>
         <v-card class="cardForm2" elevation="10">
             <v-card-title>Ingreso</v-card-title>
             <v-card-text>Para ingresar, digite su cédula</v-card-text>
@@ -24,7 +25,7 @@
                             :rules="cedulaReglas">
                     </v-text-field>
                     <v-card-actions class="justify-center">
-                        <v-btn type="submit" color="primary white--text" block :loading="loadingButton" large>
+                        <v-btn @click="login" type="submit" color="primary white--text" block :loading="loadingButton" large>
                             Ingresar
                         </v-btn>
 
@@ -38,11 +39,18 @@
                 </v-form>
             </v-card-text>
         </v-card>
+        <FOOTER/>
     </v-app>
 </template>
 <script>
+import axios from 'axios'
+import FOOTER from "@/components/footer.vue";
+import APP_BAR from "@/components/app_bar.vue";
 export default {
         name: "Login",
+        components: {
+            FOOTER, APP_BAR
+        },
         data() {
             return {
                 alertVerified: false,
@@ -50,6 +58,7 @@ export default {
                 alertUserPasswordIncorrect: false,
                 alertNotUser: false,
                 cedula: '',
+                inicio_login:[],
                 show: false,
                 loadingButton: false,
                 cedulaReglas: [
@@ -60,6 +69,26 @@ export default {
         methods: {
             registrar() {
                 this.$router.push({name: 'Registro'});
+            },
+            login(){
+                if(this.cedula==123456) {
+                    this.$router.push({name: 'Admin'});
+                }else{
+                    this.inicio_login.push(this.cedula)
+                    const path = 'http://localhost:5000/Login';
+                    axios.post(path, this.inicio_login).then((result) => {
+                        if(result.data==true){
+                            this.$router.push({name: 'Inicio'});
+                        }else{
+                            this.$router.push({name: 'Registro'});
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                }
+                
+
             }
         }    
 }
