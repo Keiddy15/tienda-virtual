@@ -2,11 +2,11 @@
     <v-app>
         <APP_BAR :productos=productos></APP_BAR> 
         <v-row>
-            <v-col cols="6" md="3" v-for="productos in info_productos1" :key="productos">
+            <v-col cols="6" md="3" v-for="p in p1" :key="p.src">
                     <v-card >
                         <v-hover>
                         <template v-slot:default="{ hover }">
-                            <v-img :src="productos.src"
+                            <v-img :src="p.src"
                                 height="400">
                                 <v-fade-transition>
                                     <v-overlay
@@ -15,7 +15,6 @@
                                     color="#036358"
                                     >
                                     <v-radio-group
-                                        v-model="row"
                                         row
                                     >
                                         <v-radio
@@ -38,7 +37,7 @@
                         </template>
                         </v-hover>
                         <v-card-title class="font-weight-light">
-                            {{productos.nombre}}
+                            {{p.nombre}}
                         </v-card-title>
                         <v-chip
                             class="ma-2"
@@ -62,17 +61,17 @@
                             S
                         </v-chip>
                         <v-card-subtitle class="font-weight-light">
-                            {{productos.precio}}
+                            {{p.precio}}
                         </v-card-subtitle>
                     </v-card>
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="6" md="3" v-for="productos in info_productos2" :key="productos">
+            <v-col cols="6" md="3" v-for="p in p2" :key="p.src">
                     <v-card >
                         <v-hover>
                         <template v-slot:default="{ hover }">
-                            <v-img :src="productos.src"
+                            <v-img :src="p.src"
                                 height="400">
                                 <v-fade-transition>
                                     <v-overlay
@@ -81,7 +80,6 @@
                                     color="#036358"
                                     >
                                     <v-radio-group
-                                        v-model="row"
                                         row
                                     >
                                         <v-radio
@@ -104,7 +102,7 @@
                         </template>
                         </v-hover>
                         <v-card-title class="font-weight-light">
-                            {{productos.nombre}}
+                            {{p.nombre}}
                         </v-card-title>
                         <v-chip
                             class="ma-2"
@@ -128,7 +126,7 @@
                             S
                         </v-chip>
                         <v-card-subtitle class="font-weight-light">
-                            {{productos.precio}}
+                            {{p.precio}}
                         </v-card-subtitle>
                     </v-card>
             </v-col>
@@ -144,18 +142,7 @@ import FOOTER from "@/components/footer.vue";
 export default {
     name: 'Hombre',
     data: () => ({
-        info_productos1:[
-            {precio:"$45.000",nombre:"Camiseta de punto Slim Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F20%2Fff%2F20ff9bb9e688b5150afeb2e6d1cd519ff88e71d3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_longsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$45.000",nombre:"Camiseta de punto Slim Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F54%2Fb0%2F54b008a411c170f51adc0904b9b3834ca304bd29.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_longsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$30.000",nombre:"Camiseta Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F8a%2F57%2F8a57975f2484e3b09efc66b786856c798b5b4da9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$70.000",nombre:"Sudadera con motivo",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F11%2F35%2F1135726abf2451a2e08285ec1d3b261c4393a4b7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_sweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-        ],
-        info_productos2:[
-            {precio:"$55.000",nombre:"Sudadera Relaxed Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fdd%2F8a%2Fdd8a150b480cc7a3f8bbe337196eb8306fb63884.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_sweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$85.000",nombre:"Chaqueta camisera de sarga",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc7%2F0b%2Fc70b6c42feec88d508246c1ae634ea15ec844d75.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_jacketscoats_jackets%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$30.000",nombre:"Camisa de pana Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd1%2F0e%2Fd10e5aefb60f20733309ad818c9d614e61fa25bf.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shirts_longsleeved%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$50.000",nombre:"Camisa de pana Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3b%2F49%2F3b492fdb4402d35ae3fc524428fec5547083049b.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shirts_longsleeved%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-        ],
+
         overlay: false,
         productos:JSON.parse(localStorage.getItem('carrito')),
     }),
@@ -168,6 +155,14 @@ export default {
             localStorage.setItem('carrito',JSON.stringify(this.productos))
         }
     },
+  computed:{
+    p1(){
+      return this.$store.state.info_productos_hombre1
+    },
+    p2(){
+      return this.$store.state.info_productos_hombre2
+    }
+  }
 
 }
 </script>
