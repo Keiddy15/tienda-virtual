@@ -6,6 +6,7 @@ import Login from "../views/Login.vue"
 import Hombre from "../views/Hombre.vue"
 import Mujer from "../views/Mujer.vue"
 import Ninos from "../views/Ninos.vue"
+import Ninas from "../views/Ninas.vue"
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes = [
     path: '/Ninos',
     name: 'Ninos',
     components: {main: Ninos}
+  },
+  {
+    path: '/Ninas',
+    name: 'Ninas',
+    components: {main: Ninas}
   },
 ]
 

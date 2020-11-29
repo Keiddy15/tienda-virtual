@@ -132,7 +132,6 @@
                         </v-card-subtitle>
                     </v-card>
             </v-col>
-        
         </v-row>
         <FOOTER/>
     </v-app>
@@ -145,22 +144,21 @@ export default {
     name: 'Hombre',
     data: () => ({
         info_productos1:[
-            {precio:"$45.000",nombre:"Camiseta de punto Slim Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F20%2Fff%2F20ff9bb9e688b5150afeb2e6d1cd519ff88e71d3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_longsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$45.000",nombre:"Camiseta de punto Slim Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F54%2Fb0%2F54b008a411c170f51adc0904b9b3834ca304bd29.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_longsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$30.000",nombre:"Camiseta Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F8a%2F57%2F8a57975f2484e3b09efc66b786856c798b5b4da9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$70.000",nombre:"Sudadera con motivo",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F11%2F35%2F1135726abf2451a2e08285ec1d3b261c4393a4b7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_sweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$35.000",nombre:"Sudadera",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F48%2F73%2F4873ac8d8732bbcf00acaf80e747f4bcf96f6bd8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_jumperscardigans_hoodiessweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$65.000",nombre:"Conjunto de 2 piezas",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc2%2F09%2Fc20966d9f15beef4664a32348ae86ca2ca863f9a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_dressesskirts_skirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]"},
+            {precio:"$30.000",nombre:"Sudadera corazones",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F38%2Fd8%2F38d86ed575b07187f0bd81056a9bc6a9b6febc10.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_jumperscardigans_hoodiessweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$42.000",nombre:"Vestido con falda de tul",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6d%2F26%2F6d264cf782cc61246ca381a835096cf34ce625f6.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_dressesskirts_dresses%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
         ],
         info_productos2:[
-            {precio:"$55.000",nombre:"Sudadera Relaxed Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fdd%2F8a%2Fdd8a150b480cc7a3f8bbe337196eb8306fb63884.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_sweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$85.000",nombre:"Chaqueta camisera de sarga",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc7%2F0b%2Fc70b6c42feec88d508246c1ae634ea15ec844d75.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_jacketscoats_jackets%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$30.000",nombre:"Camisa de pana Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd1%2F0e%2Fd10e5aefb60f20733309ad818c9d614e61fa25bf.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shirts_longsleeved%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
-            {precio:"$50.000",nombre:"Camisa de pana Regular Fit",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3b%2F49%2F3b492fdb4402d35ae3fc524428fec5547083049b.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shirts_longsleeved%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$75.000",nombre:"Vestido sudadera",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F0a%2F86%2F0a86670d0bae84063ef349f983fc09c4019ac853.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_dressesskirts_dresses%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$55.000",nombre:"Sudadera motivo-estampado",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F73%2F58%2F7358437998ff824e8625c27a2de62baa9a85beca.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_jumperscardigans_hoodiessweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$71.000",nombre:"Sudadera con capucha-motivo",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ffc%2Fc1%2Ffcc1872bc712efdbaac753de49180fd7bd098ddf.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_boys14y_jumperscardigans_hoodiessweatshirts%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
+            {precio:"$48.000",nombre:"Pack de 3 leggings vaqueros",src:"https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F32%2Fd6%2F32d6c2ee79bebbbeb22bca899fe902cddbcb6cdb.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_jeans%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"},
         ],
-        overlay: false,
         productos:JSON.parse(localStorage.getItem('carrito')),
     }),
     components: {
-        APP_BAR,FOOTER
+    APP_BAR,FOOTER
     },
     methods: {
         productos_(){
@@ -168,7 +166,6 @@ export default {
             localStorage.setItem('carrito',JSON.stringify(this.productos))
         }
     },
-
 }
 </script>
 
