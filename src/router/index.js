@@ -59,7 +59,8 @@ const routes = [
     path: '/Carrito',
     name: 'carrito',
     components: {main: carrito}
-  }
+  },
+  {
     name: 'Carrito',
     components: {main: Carrito}
   },
