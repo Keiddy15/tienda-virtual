@@ -7,7 +7,7 @@ import Hombre from "../views/Hombre.vue"
 import Mujer from "../views/Mujer.vue"
 import Ninos from "../views/Ninos.vue"
 import Ninas from "../views/Ninas.vue"
-
+import Carrito from "../views/Carrito.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -53,6 +53,11 @@ const routes = [
     path: '/Ninas',
     name: 'Ninas',
     components: {main: Ninas}
+  },
+  {
+    path: '/Carrito',
+    name: 'Carrito',
+    components: {main: Carrito}
   },
 ]
 
