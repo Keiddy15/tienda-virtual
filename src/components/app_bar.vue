@@ -6,9 +6,10 @@
                     <v-img @click="inicio" src="@/assets/img/icono.png" width="70" height="70"></v-img>
                 </v-app-bar-nav-icon>
                 <v-toolbar-items >
-                    <v-btn @click="mujer" text>MUJER</v-btn>
-                    <v-btn @click="hombre" text>HOMBRE</v-btn>
-                    <v-btn @click="ninos" text>NIÑOS</v-btn>
+                    <v-btn @click="mujer" text>MUJER <v-icon right>mdi-chevron-down</v-icon></v-btn>
+                    <v-btn @click="hombre" text>HOMBRE<v-icon right>mdi-chevron-down</v-icon></v-btn>
+                    <v-btn @click="ninos" text>NIÑOS<v-icon right>mdi-chevron-down</v-icon></v-btn>
+                    <v-btn @click="ninas" text>NIÑAS<v-icon right>mdi-chevron-down</v-icon></v-btn>
                 </v-toolbar-items>
 
             </v-toolbar>
@@ -19,14 +20,22 @@
                 <v-spacer></v-spacer>
 
                 <v-toolbar-items>
-                <v-btn icon>
-                    <v-icon>mdi-shopping</v-icon>
-                </v-btn>
+                    <v-btn icon>
+                    <v-badge
+                        :content="productos"
+                        :value="productos"
+                        color="blue darken-3"
+                        overlap
+                    >
+                    
+                        <v-icon>mdi-shopping</v-icon>
+                    </v-badge>
+                    </v-btn>
+                    <v-btn @click="login" class="catalogo" text>
+                        <v-icon left>mdi-account</v-icon>
+                        Ingresar 
+                    </v-btn>
 
-                <v-btn @click="login" class="catalogo" text>
-                    <v-icon left>mdi-account</v-icon>
-                    Ingresar
-                </v-btn>
                 </v-toolbar-items>
             </v-toolbar>
         </div>
@@ -36,6 +45,14 @@
 <script>
     export default {
         name: "APP_BAR",
+        data() {
+            return {
+               
+            }
+        },
+        props:{
+            productos:Number
+        },
         methods: {
             login() {
                 this.$router.push({name: 'Login'});
@@ -49,9 +66,26 @@
             ninos() {
                 this.$router.push({name: 'Ninos'});
             },
+            ninas() {
+                this.$router.push({name: 'Ninas'});
+            },
             inicio() {
                 this.$router.push({name: 'Inicio'});
             },
+            
+        },
+        created(){
+            let num_product=JSON.parse(localStorage.getItem('carrito'))
+            if (num_product==null){
+                this.productos=0;
+            }else{
+                this.productos=num_product;
+            }
+        },
+        watch:{
+            name_localstorage(){
+                localStorage.name='carrito'
+            }
         }
     }
 </script>
