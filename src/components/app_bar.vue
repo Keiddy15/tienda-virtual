@@ -20,12 +20,13 @@
                 <v-spacer></v-spacer>
 
                 <v-toolbar-items>
-                    <v-btn icon>
+                    <v-btn @click="carrito_compra" icon>
                     <v-badge
                         :content="productos"
                         :value="productos"
                         color="blue darken-3"
                         overlap
+                        
                     >
                     
                         <v-icon>mdi-shopping</v-icon>
@@ -72,7 +73,9 @@
             inicio() {
                 this.$router.push({name: 'Inicio'});
             },
-            
+            carrito_compra() {
+                this.$router.push({name: 'Carrito'});
+            },
         },
         created(){
             let num_product=JSON.parse(localStorage.getItem('carrito'))
