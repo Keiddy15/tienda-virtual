@@ -121,10 +121,9 @@ export default {
       const path = 'http://localhost:5000/Login';
       axios.post(path, this.inicio_login).then((result) => {
         if(result.data==true){
-          
           this.info_venta.push({id_venta:this.id_venta,ced_c:this.cedula,
             total:this.total})
-            console.log(this.info_venta)
+          console.log(this.info_venta)
           this.insertar_cliente()
         }else{
           alert('No estás registrado')
@@ -140,9 +139,7 @@ export default {
       axios.get(path).then((respuesta) => {
         
         this.ventas = respuesta.data
-        
         var longitud=(this.ventas.length)
-        
         this.id_venta=longitud
         console.log(this.id_venta)
       })
@@ -155,7 +152,8 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-    }
+    },
+    
   },
   computed: {
     carroItem() {
