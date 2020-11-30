@@ -30,9 +30,7 @@
         <v-card >
           <v-hover>
             <template v-slot:default="{ hover }">
-              <v-img :src="item.src"
-                     height="400">
-              </v-img>
+              <!-- <v-img :src="item.src" height="400"></v-img> -->
             </template>
           </v-hover>
           <v-card-title class="font-weight-light">
@@ -115,14 +113,18 @@ export default {
     APP_BAR, FOOTER
   },
   methods: {
+
     comprar(){
+      this.creacion_id()
+      console.log(this.id_venta)
       this.inicio_login.push(this.cedula)
       const path = 'http://localhost:5000/Login';
       axios.post(path, this.inicio_login).then((result) => {
         if(result.data==true){
-          this.id_venta = Math.random();
+          
           this.info_venta.push({id_venta:this.id_venta,ced_c:this.cedula,
             total:this.total})
+            console.log(this.info_venta)
           this.insertar_cliente()
         }else{
           alert('No estás registrado')
@@ -133,9 +135,21 @@ export default {
           });
 
     },
+    creacion_id(){
+      const path = 'http://localhost:5000/Admin/ventas'
+      axios.get(path).then((respuesta) => {
+        
+        this.ventas = respuesta.data
+        
+        var longitud=(this.ventas.length)
+        
+        this.id_venta=longitud
+        console.log(this.id_venta)
+      })
+    },
     insertar_cliente(){
       const path = 'http://localhost:5000/Ventas';
-      axios.post(path, this.info_cliente).then((result) => {
+      axios.post(path, this.info_venta).then((result) => {
         console.log('uwu',result)
       })
           .catch((error) => {
@@ -154,6 +168,7 @@ export default {
     created() {
       this.carroItem();
       //this.carroItemH();
+      
     },
   }
 }
