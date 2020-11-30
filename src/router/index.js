@@ -7,7 +7,7 @@ import Hombre from "../views/Hombre.vue"
 import Mujer from "../views/Mujer.vue"
 import Ninos from "../views/Ninos.vue"
 import Ninas from "../views/Ninas.vue"
-import carrito from "@/components/carrito";
+import Carrito from "@/views/Carrito";
 import Admin from "../views/Admin.vue";
 Vue.use(VueRouter)
 
@@ -57,8 +57,8 @@ const routes = [
   },
   {
     path: '/Carrito',
-    name: 'carrito',
-    components: {main: carrito}
+    name: 'Carrito',
+    components: {main: Carrito}
   },
   {
     path: '/Admin',

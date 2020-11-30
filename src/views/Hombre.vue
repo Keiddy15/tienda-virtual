@@ -14,23 +14,7 @@
                                     absolute
                                     color="#036358"
                                     >
-                                    <v-radio-group
-                                        row
-                                    >
-                                        <v-radio
-                                        label="L"
-                                        value="L"
-                                        ></v-radio>
-                                        <v-radio
-                                        label="M"
-                                        value="M"
-                                        ></v-radio>
-                                        <v-radio
-                                        label="S"
-                                        value="S"
-                                        ></v-radio>
-                                    </v-radio-group>
-                                    <v-btn outlined @click="productos_" >Agregar al carrito <v-icon right>mdi-shopping</v-icon> </v-btn>
+                                    <v-btn outlined @click="productos_(p)" >Agregar al carrito <v-icon right>mdi-shopping</v-icon> </v-btn>
                                     </v-overlay>
                                 </v-fade-transition>
                             </v-img>
@@ -39,98 +23,11 @@
                         <v-card-title class="font-weight-light">
                             {{p.nombre}}
                         </v-card-title>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            L
-                        </v-chip>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            M
-                        </v-chip>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            S
-                        </v-chip>
                         <v-card-subtitle class="font-weight-light">
                             {{p.precio}}
                         </v-card-subtitle>
                     </v-card>
             </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="6" md="3" v-for="p in p2" :key="p.src">
-                    <v-card >
-                        <v-hover>
-                        <template v-slot:default="{ hover }">
-                            <v-img :src="p.src"
-                                height="400">
-                                <v-fade-transition>
-                                    <v-overlay
-                                    v-if="hover"
-                                    absolute
-                                    color="#036358"
-                                    >
-                                    <v-radio-group
-                                        row
-                                    >
-                                        <v-radio
-                                        label="L"
-                                        value="L"
-                                        ></v-radio>
-                                        <v-radio
-                                        label="M"
-                                        value="M"
-                                        ></v-radio>
-                                        <v-radio
-                                        label="S"
-                                        value="S"
-                                        ></v-radio>
-                                    </v-radio-group>
-                                    <v-btn outlined @click="productos_" >Agregar al carrito <v-icon right>mdi-shopping</v-icon> </v-btn>
-                                    </v-overlay>
-                                </v-fade-transition>
-                            </v-img>
-                        </template>
-                        </v-hover>
-                        <v-card-title class="font-weight-light">
-                            {{p.nombre}}
-                        </v-card-title>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            L
-                        </v-chip>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            M
-                        </v-chip>
-                        <v-chip
-                            class="ma-2"
-                            color="grey darken-3"
-                            dark
-                        >
-                            S
-                        </v-chip>
-                        <v-card-subtitle class="font-weight-light">
-                            {{p.precio}}
-                        </v-card-subtitle>
-                    </v-card>
-            </v-col>
-        
         </v-row>
         <FOOTER/>
     </v-app>
@@ -150,7 +47,8 @@ export default {
         APP_BAR,FOOTER
     },
     methods: {
-        productos_(){
+        productos_(p){
+          this.$store.dispatch('agregarProductoH', p)
             this.productos++;
             localStorage.setItem('carrito',JSON.stringify(this.productos))
         }
@@ -159,9 +57,6 @@ export default {
     p1(){
       return this.$store.state.info_productos_hombre1
     },
-    p2(){
-      return this.$store.state.info_productos_hombre2
-    }
   }
 
 }
