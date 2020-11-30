@@ -77,8 +77,9 @@ export default {
                     this.inicio_login.push(this.cedula)
                     const path = 'http://localhost:5000/Login';
                     axios.post(path, this.inicio_login).then((result) => {
-                        if(result.data==true){
+                        if(result.data!=null){
                             this.$router.push({name: 'Inicio'});
+                            localStorage.setItem('cuenta',JSON.stringify(result.data))
                         }else{
                             this.$router.push({name: 'Registro'});
                         }

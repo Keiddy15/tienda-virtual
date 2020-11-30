@@ -18,7 +18,7 @@
           Clientes
         </v-tab>
         <v-tab>
-          Categorías y productos
+          Ventas
         </v-tab>
         <v-tab-item>
           <v-card elevation="15" color="#FFF" raised class="cardForm">
@@ -28,7 +28,47 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-text>
-              <Categoria/>
+              <v-tabs
+                    fixed-tabs
+                    background-color="primary"
+                    dark
+                    show-arrows
+                >
+                  <v-tab>
+                    Todas las categorías
+                  </v-tab>
+                  <v-tab>
+                    Productos por categoria
+                  </v-tab>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Todas las categorías
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Categoria/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Productos por categoria
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Num_produc_cate/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+              </v-tabs>
               <v-spacer></v-spacer>
             </v-card-text>
           </v-card>
@@ -42,7 +82,48 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-text>
-              <Productos/>
+              <v-tabs
+                    fixed-tabs
+                    background-color="primary"
+                    dark
+                    show-arrows
+                >
+                  <v-tab>
+                    Todas los productos
+                  </v-tab>
+                  <v-tab>
+                    Categorias y productos
+                  </v-tab>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Todas los productos
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Productos/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Categoria y productos
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Cate_produ/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+              </v-tabs>
+              
               <v-spacer></v-spacer>
             </v-card-text>
           </v-card>
@@ -55,7 +136,65 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-text>
-              <Clientes/>
+              <v-tabs
+                    fixed-tabs
+                    background-color="primary"
+                    dark
+                    show-arrows
+                >
+                  <v-tab>
+                    Listado de clientes
+                  </v-tab>
+                  <v-tab>
+                    Numero total de clientes
+                  </v-tab>
+                  <v-tab>
+                    Clientes por ciudad
+                  </v-tab>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Listado de clientes
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Clientes/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Numero total de clientes
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Num_clientes/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Numero de clientes por ciudad
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Num_clientes_ciudad/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+              </v-tabs>
+              
               <v-spacer></v-spacer>
             </v-card-text>
           </v-card>
@@ -64,11 +203,85 @@
           <v-card elevation="15" color="#FFF" raised class="cardForm">
             <v-card-text class="textUser">
               <h1 style="letter-spacing: 2px; line-height: 40px">
-                Categoría y producto</h1>
+                Ventas</h1>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-text>
-              <Cate_produ/>
+              <v-tabs
+                    fixed-tabs
+                    background-color="primary"
+                    dark
+                    show-arrows
+                >
+                  <v-tab>
+                    Listado de las ventas
+                  </v-tab>
+                  <v-tab>
+                    Numero total de ventas por ciudad
+                  </v-tab>
+                  <v-tab>
+                    Mayor y menor ingreso del mes
+                  </v-tab>
+                  <v-tab>
+                    Ventas y clientes
+                  </v-tab>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Listado de las ventas
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Ventas/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Numero total de ventas por ciudad
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Total_ventas/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Mayor y menor ingreso del mes
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Mayor_menor_ventas/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                      <v-card-text class="textUser">
+                        <h1 style="letter-spacing: 2px; line-height: 40px">
+                          Ventas y clientes
+                        </h1>
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <Ventas_clientes/>
+                        <v-spacer></v-spacer>
+                      </v-card-text>
+                    </v-card>
+                    </v-tab-item>
+              </v-tabs>
               <v-spacer></v-spacer>
             </v-card-text>
           </v-card>
@@ -87,8 +300,15 @@ import APP_BAR from "@/components/app_bar.vue";
 import FOOTER from "@/components/footer.vue";
 import Categoria from "@/components/Categoria";
 import Productos from "@/components/Productos";
+import Num_produc_cate from "@/components/num_produc_cate";
 import Clientes from "@/components/Clientes";
 import Cate_produ from "@/components/Cate_produ";
+import Ventas from "@/components/Ventas";
+import Total_ventas from '../components/total_ventas.vue';
+import Mayor_menor_ventas from '../components/Mayor_menor_ventas.vue';
+import Ventas_clientes from '../components/Ventas_clientes.vue';
+import Num_clientes from '../components/Num_clientes.vue';
+import Num_clientes_ciudad from '../components/Num_clientes_ciudad.vue';
 export default {
   name: 'Inicio',
   data() {
@@ -103,7 +323,8 @@ export default {
     }
   },
   components: {
-    APP_BAR, FOOTER, Categoria, Productos, Clientes, Cate_produ
+    APP_BAR, FOOTER, Categoria, Productos, Clientes, Cate_produ,Num_produc_cate,Ventas,
+    Total_ventas,Mayor_menor_ventas,Ventas_clientes,Num_clientes,Num_clientes_ciudad,
   },
   methods: {
   }
