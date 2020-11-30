@@ -21,18 +21,24 @@
 
                 <v-toolbar-items>
                     <v-btn @click="carrito_compra" icon>
-                    <v-badge
-                        :content="productos"
-                        :value="productos"
-                        color="blue darken-3"
-                        overlap
-                        
-                    >
-                    
-                        <v-icon>mdi-shopping</v-icon>
-                    </v-badge>
+                        <v-badge
+                            :content="productos"
+                            :value="productos"
+                            color="blue darken-3"
+                            overlap
+
+                        >
+
+                            <v-icon>mdi-shopping</v-icon>
+                        </v-badge>
                     </v-btn>
-                    <v-btn @click="login" class="catalogo" text>
+                    <v-btn icon v-show="cuenta">
+                        <v-avatar @click="cerrar_cuenta" class=" mx-2" size="34"  color="blue darken-3">
+                            <span class="white--text headline">{{this.cuenta[0]}}</span>
+                        </v-avatar>
+                    </v-btn>
+                    
+                    <v-btn v-show="!cuenta" @click="login" class="catalogo" text>
                         <v-icon left>mdi-account</v-icon>
                         Ingresar 
                     </v-btn>
@@ -48,6 +54,7 @@
         name: "APP_BAR",
         data() {
             return {
+               cuenta:false,
                
             }
         },
@@ -76,8 +83,14 @@
             carrito_compra() {
                 this.$router.push({name: 'Carrito'});
             },
+            cerrar_cuenta(){
+                localStorage.removeItem('cuenta');
+                this.cuenta=false;
+            }
         },
+
         created(){
+            this.cuenta=JSON.parse(localStorage.getItem('cuenta'))[0][1]
             let num_product=JSON.parse(localStorage.getItem('carrito'))
             if (num_product==null){
                 this.productos=0;
