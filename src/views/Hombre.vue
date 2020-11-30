@@ -2,11 +2,12 @@
     <v-app>
         <APP_BAR :productos=productos></APP_BAR> 
         <v-row>
-            <v-col cols="6" md="3" v-for="p in p1" :key="p.src">
-                    <v-card >
+            <v-col cols="6" md="3" v-for="p in p1" :key="p.src" v-if="p.id >= 111 && p.id < 211">
+                    <v-card>
                         <v-hover>
                         <template v-slot:default="{ hover }">
-                            <v-img :src="p.src"
+                            <v-img
+                                :src="p.src"
                                 height="400">
                                 <v-fade-transition>
                                     <v-overlay
@@ -48,14 +49,14 @@ export default {
     },
     methods: {
         productos_(p){
-          this.$store.dispatch('agregarProductoH', p)
+            this.$store.dispatch('APM', p)
             this.productos++;
             localStorage.setItem('carrito',JSON.stringify(this.productos))
         }
     },
   computed:{
     p1(){
-      return this.$store.state.info_productos_hombre1
+      return this.$store.state.productos
     },
   }
 

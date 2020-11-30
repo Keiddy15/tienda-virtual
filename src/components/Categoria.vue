@@ -40,8 +40,6 @@ export default {
   },
   methods: {
     loadDataTable() {
-      this.loadingData = !this.loadingData;
-      this.data = [];
       const path = 'http://localhost:5000/Admin/categorias'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
