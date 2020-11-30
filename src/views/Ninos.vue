@@ -2,7 +2,7 @@
     <v-app>
         <APP_BAR :productos=productos></APP_BAR> 
         <v-row>
-            <v-col cols="6" md="3" v-for="p in p1" :key="p.src">
+            <v-col cols="6" md="3" v-for="p in p1" :key="p.src" v-if="p.id >= 311 && p.id < 411">
                     <v-card >
                         <v-hover>
                         <template v-slot:default="{ hover }">
@@ -14,7 +14,7 @@
                                     absolute
                                     color="#036358"
                                     >
-                                    <v-btn outlined @click="productos_" >Agregar al carrito <v-icon right>mdi-shopping</v-icon> </v-btn>
+                                    <v-btn outlined @click="productos_(p)" >Agregar al carrito <v-icon right>mdi-shopping</v-icon> </v-btn>
                                     </v-overlay>
                                 </v-fade-transition>
                             </v-img>
@@ -47,14 +47,15 @@ export default {
     APP_BAR,FOOTER
     },
     methods: {
-        productos_(){
+        productos_(p){
+          this.$store.dispatch('APM', p)
             this.productos++;
             localStorage.setItem('carrito',JSON.stringify(this.productos))
         }
     },
   computed: {
     p1(){
-      return this.$store.state.info_productos_ninos1
+      return this.$store.state.productos
     },
   }
 }

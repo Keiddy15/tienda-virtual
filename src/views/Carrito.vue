@@ -1,90 +1,97 @@
-<<template>
+<template>
   <v-app>
-        <APP_BAR :productos=productos></APP_BAR>
-        <v-row>
-          <v-col cols="6" md="3" v-for="item in carroItem" :key="item.id">
-            <v-card >
-              <v-hover>
-                <template v-slot:default="{ hover }">
-                  <v-img :src="item.src"
-                         height="400">
-                  </v-img>
-                </template>
-              </v-hover>
-              <v-card-title class="font-weight-light">
-                {{item.nombre}}
-              </v-card-title>
-              <v-card-subtitle class="font-weight-light">
-                {{item.precio}}
-              </v-card-subtitle>
-              <v-card-subtitle class="font-weight-light">
-                Cantidad: {{item.cantidad}}
-              </v-card-subtitle>
-            </v-card>
-          </v-col>
+    <APP_BAR :productos=productos></APP_BAR>
+    <v-card>
+      <v-card-title>
+        Carrito de compras
+      </v-card-title>
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+          <tr>
+            <th>
 
-        </v-row>
+            </th>
+            <th class="text-left">
+              ID
+            </th>
+            <th class="text-left">
+              Nombre
+            </th>
+            <th class="text-left">
+              Precio
+            </th>
+            <th class="text-left">
+              Cantidad
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+              v-for="(item, $index) in carroItem"
+              :key="item"
+          >
+            <td>
+              <img align="center"  style="display:block" :src="item.src"
+                     height="80" >
+            </td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.precio}}</td>
+            <td>
+              {{ item.cantidad }}
+                <v-btn fab small dark color="indigo">
+                  <v-icon dark @click="remove(index)"> </v-icon>
+                </v-btn>
+            </td>
+            <td></td>
+          </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
+      <h4 align="center">Total: {{cartTotal || 0}}</h4>
+    </v-card>
 
-    <v-row>
-      <v-col cols="6" md="3" v-for="item in carroItemH" :key="item.id">
-        <v-card >
-          <v-hover>
-            <template v-slot:default="{ hover }">
-              <!-- <v-img :src="item.src" height="400"></v-img> -->
-            </template>
-          </v-hover>
-          <v-card-title class="font-weight-light">
-            {{item.nombre}}
-          </v-card-title>
-          <v-card-subtitle class="font-weight-light">
-            {{item.precio}}
-          </v-card-subtitle>
-          <v-card-subtitle class="font-weight-light">
-            Cantidad: {{item.cantidad}}
-          </v-card-subtitle>
+
+    <v-layout row justify-center>
+      <v-btn
+          color="primary"
+          dark
+          @click.stop="dialog = true"
+      >
+        Comprar
+      </v-btn>
+
+      <v-dialog
+          v-model="dialog"
+          max-width="290"
+      >
+        <v-card>
+          <v-card-title class="headline">Cédula</v-card-title>
+
+          <v-card-text>
+            Ingrese su cédula
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-text-field
+                label="Cédula:"
+                v-model="cedula"
+                required
+                :rules="cedulaReglas">
+            </v-text-field>
+            <v-btn
+                color="green darken-1"
+                @click="comprar"
+            >
+              Aceptar
+            </v-btn>
+
+          </v-card-actions>
         </v-card>
-      </v-col>
-
-    </v-row>
-      <v-layout row justify-center>
-        <v-btn
-            color="primary"
-            dark
-            @click.stop="dialog = true"
-        >
-          Comprar
-        </v-btn>
-
-        <v-dialog
-            v-model="dialog"
-            max-width="290"
-        >
-          <v-card>
-            <v-card-title class="headline">Cédula</v-card-title>
-
-            <v-card-text>
-              Ingrese su cédula
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-text-field
-                  label="Cédula:"
-                  v-model="cedula"
-                  required
-                  :rules="cedulaReglas">
-              </v-text-field>
-              <v-btn
-                  color="green darken-1"
-                  @click="comprar"
-              >
-                Aceptar
-              </v-btn>
-
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-layout>
+      </v-dialog>
+    </v-layout>
     <FOOTER/>
   </v-app>
 </template>
@@ -93,20 +100,22 @@
 import axios from 'axios'
 import APP_BAR from "@/components/app_bar";
 import FOOTER from "@/components/footer.vue";
+import {mapGetters} from 'vuex'
+
 export default {
   name: "Carrito",
-  data(){
-    return{
+  data() {
+    return {
       dialog: false,
       cedulaReglas: [
         v => !!v || 'La cédula es requerida.'
       ],
       cedula: '',
-      inicio_login:[],
+      inicio_login: [],
       id_venta: 0,
       total: 0,
       info_venta: [],
-      productos:JSON.parse(localStorage.getItem('carrito')),
+      productos: JSON.parse(localStorage.getItem('carrito')),
     }
   },
   components: {
@@ -114,18 +123,20 @@ export default {
   },
   methods: {
 
-    comprar(){
+    comprar() {
       this.creacion_id()
       console.log(this.id_venta)
       this.inicio_login.push(this.cedula)
       const path = 'http://localhost:5000/Login';
       axios.post(path, this.inicio_login).then((result) => {
-        if(result.data==true){
-          this.info_venta.push({id_venta:this.id_venta,ced_c:this.cedula,
-            total:this.total})
+        if (result.data == true) {
+          this.info_venta.push({
+            id_venta: this.id_venta, ced_c: this.cedula,
+            total: this.total
+          })
           console.log(this.info_venta)
           this.insertar_cliente()
-        }else{
+        } else {
           alert('No estás registrado')
         }
       })
@@ -134,41 +145,38 @@ export default {
           });
 
     },
-    creacion_id(){
+    creacion_id() {
       const path = 'http://localhost:5000/Admin/ventas'
       axios.get(path).then((respuesta) => {
-        
+
         this.ventas = respuesta.data
-        var longitud=(this.ventas.length)
-        this.id_venta=longitud
+        var longitud = (this.ventas.length)
+        this.id_venta = longitud
         console.log(this.id_venta)
       })
     },
-    insertar_cliente(){
+    insertar_cliente() {
       const path = 'http://localhost:5000/Ventas';
       axios.post(path, this.info_venta).then((result) => {
-        console.log('uwu',result)
+        console.log('uwu', result)
       })
           .catch((error) => {
             console.log(error);
           });
     },
-    
+    remove(index){
+      this.$store.dispatch('removeProduct', index)
+    }
+
   },
   computed: {
-    carroItem() {
-      return  this.$store.getters.productosCarroM;
-    },
+    ...mapGetters({
+      carroItem: 'PCM',
+      cartTotal: 'cartTotal'
+    })
 
-   //carroItemH() {
-     // return  this.$store.getters.productosCarroH;
-    //},
-    created() {
-      this.carroItem();
-      //this.carroItemH();
-      
-    },
-  }
+  },
+
 }
 </script>
 
