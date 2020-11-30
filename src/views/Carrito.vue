@@ -1,11 +1,12 @@
 <template>
-  <v-app>
+  <v-app class="main">
     <APP_BAR :productos=productos></APP_BAR>
-    <v-card>
-      <v-card-title>
-        Carrito de compras
-      </v-card-title>
-      <v-simple-table>
+    <v-card class="cardForm" elevation="20" height="100%">
+      <v-card-text class="textUser" >
+        <h1 style="letter-spacing: 2px; line-height: 40px">Carrito de compras </h1>
+
+      </v-card-text>
+      <v-simple-table height="100%">
         <template v-slot:default>
           <thead>
           <tr>
@@ -49,49 +50,50 @@
           </tbody>
         </template>
       </v-simple-table>
+
       <h4 align="center">Total: {{cartTotal || 0}}</h4>
+      <v-layout row justify-center>
+        <v-btn
+            color="primary"
+            dark
+            @click.stop="dialog = true"
+        >
+          Comprar
+        </v-btn>
+
+        <v-dialog
+            v-model="dialog"
+            max-width="290"
+        >
+          <v-card>
+            <v-card-title class="headline">Cédula</v-card-title>
+
+            <v-card-text>
+              Ingrese su cédula
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-text-field
+                  label="Cédula:"
+                  v-model="cedula"
+                  required
+                  :rules="cedulaReglas">
+              </v-text-field>
+              <v-btn
+                  color="green darken-1"
+                  @click="comprar"
+              >
+                Aceptar
+              </v-btn>
+
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-layout>
     </v-card>
 
 
-    <v-layout row justify-center>
-      <v-btn
-          color="primary"
-          dark
-          @click.stop="dialog = true"
-      >
-        Comprar
-      </v-btn>
-
-      <v-dialog
-          v-model="dialog"
-          max-width="290"
-      >
-        <v-card>
-          <v-card-title class="headline">Cédula</v-card-title>
-
-          <v-card-text>
-            Ingrese su cédula
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-text-field
-                label="Cédula:"
-                v-model="cedula"
-                required
-                :rules="cedulaReglas">
-            </v-text-field>
-            <v-btn
-                color="green darken-1"
-                @click="comprar"
-            >
-              Aceptar
-            </v-btn>
-
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-layout>
     <FOOTER/>
   </v-app>
 </template>
@@ -181,5 +183,16 @@ export default {
 </script>
 
 <style scoped>
+.textUser {
+  text-align: center;
+  color: black !important;
+}
 
+.cardForm {
+  padding: 0px;
+  margin: 20px;
+}
+.main{
+ background-color: gray !important;
+}
 </style>
