@@ -83,6 +83,7 @@
               <v-btn
                   color="green darken-1"
                   @click="comprar"
+                  
               >
                 Aceptar
               </v-btn>
@@ -92,8 +93,25 @@
         </v-dialog>
       </v-layout>
     </v-card>
+    <div class="text-center">
+      <v-snackbar
+        v-model="snackbar"
+        :multi-line="multiLine"
+      >
+        Gracias por su compra
 
-
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="red"
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+          >
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
+    </div>
     <FOOTER/>
   </v-app>
 </template>
@@ -119,19 +137,22 @@ export default {
       info_venta: [],
       productos: JSON.parse(localStorage.getItem('carrito')),
       produc_vent:[],
+      snackbar:false,
     }
   },
   components: {
     APP_BAR, FOOTER
   },
   methods: {
-
+    inicio() {
+        this.$router.push({name: 'Inicio'});
+    },
     comprar() {
       this.creacion_id()
       this.inicio_login.push(this.cedula)
       this.total=this.$store.getters.cartTotal
-      
-      
+      this.dialog=false;
+      this.snackbar = true
       const path = 'http://localhost:5000/Login';
       axios.post(path, this.inicio_login).then((result) => {
         if (result.data != false) {
@@ -144,6 +165,7 @@ export default {
           }
           this.insertar_cliente()
           this.insertar_prod_vent()
+          setTimeout(this.inicio(),9000);
         } else {
           alert('No estás registrado')
         }

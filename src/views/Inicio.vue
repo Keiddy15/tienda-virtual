@@ -22,16 +22,16 @@
         </v-row>
       <v-row justify="center" align="start">
         <v-col cols="auto">
-          <v-btn class="ma-2" outlined color="white">
+          <v-btn @click="mujer" class="ma-2" outlined color="white">
             Mujer
           </v-btn>
-          <v-btn class="ma-2" outlined color="white">
+          <v-btn @click="hombre" class="ma-2" outlined color="white">
             Hombre
           </v-btn>
-          <v-btn class="ma-2" outlined color="white">
+          <v-btn @click="ninos" class="ma-2" outlined color="white">
             Niño
           </v-btn>
-          <v-btn class="ma-2" outlined color="white">
+          <v-btn @click="ninas" class="ma-2" outlined color="white">
             Niña
           </v-btn>
         </v-col>
@@ -55,6 +55,18 @@ export default {
   methods: {
             registrar() {
                 this.$router.push({name: 'Registro'});
+            },
+            hombre() {
+                this.$router.push({name: 'Hombre'});
+            },
+            mujer() {
+                this.$router.push({name: 'Mujer'});
+            },
+            ninos() {
+                this.$router.push({name: 'Ninos'});
+            },
+            ninas() {
+                this.$router.push({name: 'Ninas'});
             },
         }
 }
