@@ -311,7 +311,7 @@
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
                       <h1 style="letter-spacing: 2px; line-height: 40px">
-                        Clientes a tener en cuenta para posibles promociones
+                        Compras a tener en cuenta para posibles promociones
                       </h1>
                     </v-card-text>
                     <v-divider></v-divider>
@@ -325,7 +325,7 @@
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
                       <h1 style="letter-spacing: 2px; line-height: 40px">
-                        Clientes sin promociones
+                        Compras sin promociones
                       </h1>
                     </v-card-text>
                     <v-divider></v-divider>
