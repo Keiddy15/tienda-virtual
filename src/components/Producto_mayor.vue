@@ -14,7 +14,7 @@
             v-for="item in body_t"
             :key="item"
         >
-          <td>{{ item[0] }}</td>
+          <td>{{ item[0] }}  {{item[1]}}</td>
         </tr>
         </tbody>
       </template>

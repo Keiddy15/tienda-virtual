@@ -5,10 +5,10 @@
         <thead>
         <tr>
           <th class="text-left">
-            Numero de ventas
+            Producto
           </th>
           <th class="text-left">
-            Categoria
+            Categoría
           </th>
         </tr>
         </thead>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     loadDataTable() {
-      const path = 'http://localhost:5000/Admin/Num_clientes_ciudad'
+      const path = 'http://localhost:5000/Producto_venta_categoria'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
         this.titulo = 'Categorias'
