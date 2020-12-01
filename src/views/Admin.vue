@@ -94,6 +94,9 @@
                 <v-tab>
                   Categorías y productos
                 </v-tab>
+                <v-tab>
+                  Producto con mayor valor
+                </v-tab>
                 <v-tab-item>
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
@@ -118,6 +121,20 @@
                     <v-divider></v-divider>
                     <v-card-text>
                       <Cate_produ/>
+                      <v-spacer></v-spacer>
+                    </v-card-text>
+                  </v-card>
+                </v-tab-item>
+                <v-tab-item>
+                  <v-card elevation="15" color="#FFF" raised class="cardForm">
+                    <v-card-text class="textUser">
+                      <h1 style="letter-spacing: 2px; line-height: 40px">
+                        Producto con mayor valor
+                      </h1>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-text>
+                      <Producto_mayor/>
                       <v-spacer></v-spacer>
                     </v-card-text>
                   </v-card>
@@ -251,6 +268,9 @@
                 <v-tab>
                   Ventas y productos
                 </v-tab>
+                <v-tab>
+                  Ventas por categoria
+                </v-tab>
                 <v-tab-item>
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
@@ -349,6 +369,20 @@
                     </v-card-text>
                   </v-card>
                 </v-tab-item>
+                <v-tab-item>
+                  <v-card elevation="15" color="#FFF" raised class="cardForm">
+                    <v-card-text class="textUser">
+                      <h1 style="letter-spacing: 2px; line-height: 40px">
+                        Ventas por categoria
+                      </h1>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-text>
+                      <VentasPorcategoria/>
+                      <v-spacer></v-spacer>
+                    </v-card-text>
+                  </v-card>
+                </v-tab-item>
               </v-tabs>
               <v-spacer></v-spacer>
             </v-card-text>
@@ -381,7 +415,8 @@ import Promocion from "@/components/Promocion";
 import Vent_prod from "@/components/Vent_prod";
 import Num_clientes_pais from "@/components/Num_clientes_pais";
 import NoPromocion from "@/components/NoPromocion";
-
+import Producto_mayor from '../components/Producto_mayor.vue';
+import VentasPorcategoria from '../components/VentasPorcategoria.vue';
 export default {
   name: 'Inicio',
   data() {
@@ -398,7 +433,8 @@ export default {
   components: {
     APP_BAR, FOOTER, Categoria, Productos, Clientes, Cate_produ, Num_produc_cate, Ventas,
     Total_ventas, Mayor_menor_ventas, Ventas_clientes, Num_clientes, Num_clientes_ciudad,
-    Promocion, Vent_prod, Num_clientes_pais, NoPromocion
+    Promocion, Vent_prod, Num_clientes_pais, NoPromocion,
+    Producto_mayor,VentasPorcategoria
   },
   methods: {}
 
