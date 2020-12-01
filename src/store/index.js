@@ -247,12 +247,22 @@ export default new Vuex.Store({
           nombre: product.nombre,
           precio: product.precio,
           src: product.src,
-          cantidad: item.cantidad
+          cantidad: item.cantidad,
+          cart:state.cart
         }
       })
     },
     cartTotal(state, getters){
         return getters.PCM.reduce((total, current) => total + current.precio * current.cantidad, 0)
+    },
+    idProd(state, getters){
+      return getters.PCM.reduce((id, current)=>current.id, 0)
+    },
+    cantProd(state, getters){
+      return getters.PCM.reduce((cantidad, current)=>current.cantidad, 0)
+    },
+    carrito(state, getters){
+      return getters.PCM.reduce((cart, current)=>current.cart, 0)
     }
   }
 })
