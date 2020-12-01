@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <APP_BAR :productos=productos></APP_BAR> 
+        <APP_BAR></APP_BAR> 
         <v-row>
             <v-col cols="6" md="3" v-for="p in p1" :key="p.src" v-if="p.id >= 111 && p.id < 211">
                     <v-card>
@@ -50,8 +50,7 @@ export default {
     methods: {
         productos_(p){
             this.$store.dispatch('APM', p)
-            this.productos++;
-            localStorage.setItem('carrito',JSON.stringify(this.productos))
+            
         }
     },
   computed:{

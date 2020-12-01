@@ -22,8 +22,8 @@
                 <v-toolbar-items>
                     <v-btn @click="carrito_compra" icon>
                         <v-badge
-                            :content="productos"
-                            :value="productos"
+                            :content="this.$store.getters.carrito.length"
+                            :value="this.$store.getters.carrito.length"
                             color="blue darken-3"
                             overlap
 
@@ -91,18 +91,23 @@
 
         created(){
             this.cuenta=JSON.parse(localStorage.getItem('cuenta'))[0][1]
-            let num_product=JSON.parse(localStorage.getItem('carrito'))
-            if (num_product==null){
-                this.productos=0;
-            }else{
-                this.productos=num_product;
-            }
+            // let num_product=JSON.parse(localStorage.getItem('carrito'))
+            // if (num_product==null){
+            //     this.productos=0;
+            // }else{
+            //     this.productos=num_product;
+            // }
         },
+
         watch:{
             name_localstorage(){
                 localStorage.name='carrito'
             }
-        }
+        },
+        computed: {
+
+
+        },
     }
 </script>
 
