@@ -5,10 +5,7 @@
         <thead>
         <tr>
           <th class="text-left">
-            Número de clientes
-          </th>
-          <th class="text-left">
-            Pais
+            Mayor valor
           </th>
         </tr>
         </thead>
@@ -18,7 +15,6 @@
             :key="item"
         >
           <td>{{ item[0] }}</td>
-          <td>{{ item[1] }}</td>
         </tr>
         </tbody>
       </template>
@@ -30,7 +26,7 @@
 import axios from "axios";
 
 export default {
-  name: "Num_clientes_pais",
+name: "Total_ventas",
   data() {
     return {
       body_t: [],
@@ -40,11 +36,15 @@ export default {
   },
   methods: {
     loadDataTable() {
-      const path = 'http://localhost:5000/Admin/Num_clientes_pais'
+      this.loadingData = !this.loadingData;
+      this.data = [];
+      const path = 'http://localhost:5000/Producto_mayor_valor'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
-        this.titulo = 'Categorias'
+        this.titulo = 'Clientes'
+        console.log("hola")
         for (let i = 0; i < this.categorias.length; i++) {
+            console.log("hola2")
           this.body_t.push(this.categorias[i])
         }
 
