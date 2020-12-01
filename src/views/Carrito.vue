@@ -118,6 +118,7 @@ export default {
       total: 0,
       info_venta: [],
       productos: JSON.parse(localStorage.getItem('carrito')),
+      produc_vent:[],
     }
   },
   components: {
@@ -127,17 +128,22 @@ export default {
 
     comprar() {
       this.creacion_id()
-      console.log(this.id_venta)
       this.inicio_login.push(this.cedula)
+      this.total=this.$store.getters.cartTotal
+      
+      
       const path = 'http://localhost:5000/Login';
       axios.post(path, this.inicio_login).then((result) => {
-        if (result.data == true) {
+        if (result.data != false) {
           this.info_venta.push({
             id_venta: this.id_venta, ced_c: this.cedula,
             total: this.total
           })
-          console.log(this.info_venta)
+          for (let i = 0; i < this.$store.getters.carrito.length; i++) {
+            this.produc_vent.push({id_venta:this.id_venta,id_prod:this.$store.getters.carrito[i]['id'], cant:this.$store.getters.carrito[i]['cantidad']})
+          }
           this.insertar_cliente()
+          this.insertar_prod_vent()
         } else {
           alert('No estás registrado')
         }
@@ -145,7 +151,6 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-
     },
     creacion_id() {
       const path = 'http://localhost:5000/Admin/ventas'
@@ -154,7 +159,7 @@ export default {
         this.ventas = respuesta.data
         var longitud = (this.ventas.length)
         this.id_venta = longitud
-        console.log(this.id_venta)
+        
       })
     },
     insertar_cliente() {
@@ -168,13 +173,26 @@ export default {
     },
     remove(index){
       this.$store.dispatch('removeProduct', index)
+    },
+    insertar_prod_vent(){
+      const path = 'http://localhost:5000/Prod_vent';
+      console.log('hola')
+      axios.post(path, this.produc_vent).then((result) => {
+        console.log('uwu', result)
+      })
+          .catch((error) => {
+            console.log(error);
+          });
     }
 
   },
   computed: {
     ...mapGetters({
       carroItem: 'PCM',
-      cartTotal: 'cartTotal'
+      cartTotal: 'cartTotal',
+      idProd:'idProd',
+      cantProd:'cantProd',
+      carrito:'carrito',
     })
 
   },
