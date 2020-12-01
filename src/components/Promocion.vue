@@ -4,11 +4,12 @@
       <template v-slot:default>
         <thead>
         <tr>
+        <tr>
           <th class="text-left">
-            Numero de clientes
+            Nombre
           </th>
-          <th class="text-left">
-            Ciudad
+          <th>
+            Total
           </th>
         </tr>
         </thead>
@@ -30,7 +31,7 @@
 import axios from "axios";
 
 export default {
-  name: "Categoria",
+  name: "Promocion",
   data() {
     return {
       body_t: [],
@@ -40,10 +41,11 @@ export default {
   },
   methods: {
     loadDataTable() {
-      const path = 'http://localhost:5000/Admin/Num_clientes_ciudad'
+      this.loadingData = !this.loadingData;
+      this.data = [];
+      const path = 'http://localhost:5000/Promocion'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
-        this.titulo = 'Categorias'
         for (let i = 0; i < this.categorias.length; i++) {
           this.body_t.push(this.categorias[i])
         }

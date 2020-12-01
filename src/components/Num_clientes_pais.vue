@@ -5,10 +5,10 @@
         <thead>
         <tr>
           <th class="text-left">
-            Numero de clientes
+            Número de clientes
           </th>
           <th class="text-left">
-            Ciudad
+            Pais
           </th>
         </tr>
         </thead>
@@ -30,7 +30,7 @@
 import axios from "axios";
 
 export default {
-  name: "Categoria",
+  name: "Num_clientes_pais",
   data() {
     return {
       body_t: [],

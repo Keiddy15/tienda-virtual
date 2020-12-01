@@ -35,7 +35,6 @@
           <td>{{ item[3] }}</td>
           <td>{{ item[4] }}</td>
           <td>{{ item[5] }}</td>
-          <td>{{ item[5] }}</td>
         </tr>
         </tbody>
       </template>
