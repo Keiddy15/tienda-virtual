@@ -40,6 +40,9 @@
                 <v-tab>
                   Productos por categoría
                 </v-tab>
+                <v-tab>
+                  Suma productos por categoría
+                </v-tab>
                 <v-tab-item>
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
@@ -64,6 +67,20 @@
                     <v-divider></v-divider>
                     <v-card-text>
                       <Num_produc_cate/>
+                      <v-spacer></v-spacer>
+                    </v-card-text>
+                  </v-card>
+                </v-tab-item>
+                <v-tab-item>
+                  <v-card elevation="15" color="#FFF" raised class="cardForm">
+                    <v-card-text class="textUser">
+                      <h1 style="letter-spacing: 2px; line-height: 40px">
+                        Suma productos por categoría
+                      </h1>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-text>
+                      <Suma_Productos_Categoria/>
                       <v-spacer></v-spacer>
                     </v-card-text>
                   </v-card>
@@ -417,6 +434,7 @@ import Num_clientes_pais from "@/components/Num_clientes_pais";
 import NoPromocion from "@/components/NoPromocion";
 import Producto_mayor from '../components/Producto_mayor.vue';
 import VentasPorcategoria from '../components/VentasPorcategoria.vue';
+import Suma_Productos_Categoria from "../components/Suma_Productos_Categoria";
 export default {
   name: 'Inicio',
   data() {
@@ -434,7 +452,7 @@ export default {
     APP_BAR, FOOTER, Categoria, Productos, Clientes, Cate_produ, Num_produc_cate, Ventas,
     Total_ventas, Mayor_menor_ventas, Ventas_clientes, Num_clientes, Num_clientes_ciudad,
     Promocion, Vent_prod, Num_clientes_pais, NoPromocion,
-    Producto_mayor,VentasPorcategoria
+    Producto_mayor,VentasPorcategoria, Suma_Productos_Categoria
   },
   methods: {}
 
