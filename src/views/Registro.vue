@@ -32,7 +32,18 @@
           </v-col>
           <v-col cols="12" sm="12" md="12">
             <v-row>
-              <v-text-field
+              <v-overflow-btn
+                :items="sexo_array"
+                label="Sexo:"
+                v-model="sexo"
+                name="sexo"
+                :rules="sexoReglas"
+                outlined
+                clearable
+                required
+                item-value="text"
+              ></v-overflow-btn>
+              <!-- <v-text-field
                   label="Sexo:"
                   v-model="sexo"
                   name="sexo"
@@ -41,7 +52,7 @@
                   clearable
                   required
               >
-              </v-text-field>
+              </v-text-field> -->
               <v-text-field
                   type="number"
                   label="Celular:"
@@ -57,7 +68,17 @@
           </v-col>
           <v-col cols="12" sm="12" md="12">
             <v-row>
-              <v-text-field
+              <v-combobox
+                :items="paises"
+                label="Pais:"
+                v-model="pais"
+                name="pais"
+                :rules="paisReglas"
+                outlined
+                clearable
+                required
+              ></v-combobox>
+              <!-- <v-text-field
                   label="Pais:"
                   v-model="pais"
                   name="pais"
@@ -66,7 +87,7 @@
                   clearable
                   required
               >
-              </v-text-field>
+              </v-text-field> -->
               <v-text-field
                   label="Ciudad:"
                   v-model="ciudad"
@@ -114,6 +135,19 @@ export default {
   },
   data() {
     return {
+      sexo_array: [
+        { text: 'M' },
+        { text: 'F' }
+      ],
+      paises: [
+          'Colombia',
+          'USA',
+          'Mexico',
+          'Peru',
+          'Chile',
+          'Argentina',
+          'España',
+        ],
       nombre: "",
       cedula: "",
       sexo: "",

@@ -54,8 +54,10 @@
         name: "APP_BAR",
         data() {
             return {
-               cuenta:false,
-               
+                cuenta:false,
+                items: [
+                    { title: 'Cerrar sesión' },
+                ],
             }
         },
         props:{
