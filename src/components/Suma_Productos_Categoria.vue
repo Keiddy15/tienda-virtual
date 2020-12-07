@@ -5,10 +5,7 @@
         <thead>
         <tr>
           <th class="text-left">
-           Nombre categoría
-          </th>
-          <th class="text-left">
-            Productos cantidad
+           Nombre cliente
           </th>
         </tr>
         </thead>
@@ -18,7 +15,6 @@
             :key="item"
         >
           <td>{{ item[0] }}</td>
-          <td>{{ item[1] }}</td>
         </tr>
         </tbody>
       </template>
