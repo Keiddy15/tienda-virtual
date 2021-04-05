@@ -235,7 +235,7 @@
                   <v-card elevation="15" color="#FFF" raised class="cardForm">
                     <v-card-text class="textUser">
                       <h1 style="letter-spacing: 2px; line-height: 40px">
-                        Suma productos por categoría
+                        Clientes VIP
                       </h1>
                     </v-card-text>
                     <v-divider></v-divider>

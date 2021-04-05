@@ -54,7 +54,7 @@
       <h4 align="center">Total: {{cartTotal || 0}}</h4>
       <v-layout row justify-center>
         <v-btn
-            color="primary"
+            color="grey darken-4 "
             dark
             @click.stop="dialog = true"
         >

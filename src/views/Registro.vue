@@ -1,7 +1,7 @@
 <template>
   <v-app class="main">
     <APP_BAR/>
-    <v-card class="cardForm2" elevation="20">
+    <v-card class="cardForm2 my-4" elevation="20">
       <v-card-title>Registrate</v-card-title>
       <v-card-text>
         <form class="px-3"  @submit.prevent="register" action="#" method="post">
@@ -114,7 +114,7 @@
             </v-row>
           </v-col>
           <v-card-actions class="justify-center">
-            <v-btn @click="guardar_cliente" type="submit" color="primary white--text" block large>
+            <v-btn @click="guardar_cliente" type="submit" color="grey darken-4 white--text" block large>
               Registrarme
             </v-btn>
           </v-card-actions>
@@ -197,6 +197,7 @@ export default {
 }
 
 .main {
-  background-color: #0d47a0 !important;
+  background-color: #ffffff !important;
 }
+
 </style>

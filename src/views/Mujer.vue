@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <APP_BAR></APP_BAR> 
+        <APP_BAR></APP_BAR>        
         <v-row>
             <v-col cols="6" md="3" v-for="p in p1" :key="p.src" v-if="p.id >= 211 && p.id < 311">
                     <v-card >

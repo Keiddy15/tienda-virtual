@@ -1,7 +1,7 @@
 <template>
     <v-footer
-        color="blue darken-3"
         padless
+        class="footer"
     >
         <v-row
             justify="center"
@@ -24,7 +24,7 @@
                 class="grey darken-4 py-4 text-center white--text"
                 cols="12"
             >
-                {{ new Date().getFullYear() }} — <strong>Vibes</strong>
+                {{ new Date().getFullYear() }} — <strong>VIOLETTE</strong>
             </v-col>
         </v-row>
     </v-footer>
@@ -50,5 +50,8 @@
     .catalogo{
         font-family: 'Poppins', sans-serif;
         letter-spacing: 3px;
+    }
+    .footer{
+        background-color: #C370E2 !important;
     }
 </style>

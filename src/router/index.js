@@ -3,10 +3,7 @@ import VueRouter from 'vue-router'
 import Inicio from "../views/Inicio.vue";
 import Registro from "../views/Registro.vue"
 import Login from "../views/Login.vue"
-import Hombre from "../views/Hombre.vue"
 import Mujer from "../views/Mujer.vue"
-import Ninos from "../views/Ninos.vue"
-import Ninas from "../views/Ninas.vue"
 import Carrito from "@/views/Carrito";
 import Admin from "../views/Admin.vue";
 Vue.use(VueRouter)
@@ -36,24 +33,9 @@ const routes = [
     components: {main: Login}
   },
   {
-    path: '/Hombre',
-    name: 'Hombre',
-    components: {main: Hombre}
-  },
-  {
     path: '/Mujer',
     name: 'Mujer',
     components: {main: Mujer}
-  },
-  {
-    path: '/Ninos',
-    name: 'Ninos',
-    components: {main: Ninos}
-  },
-  {
-    path: '/Ninas',
-    name: 'Ninas',
-    components: {main: Ninas}
   },
   {
     path: '/Carrito',

@@ -1,6 +1,6 @@
 <template>
     <v-app class="main">
-        <APP_BAR/>
+        <APP_BAR></APP_BAR> 
         <v-card class="cardForm2" elevation="10">
             <v-card-title>Ingreso</v-card-title>
             <v-card-text>Para ingresar, digite su cédula</v-card-text>
@@ -25,20 +25,20 @@
                             :rules="cedulaReglas">
                     </v-text-field>
                     <v-card-actions class="justify-center">
-                        <v-btn @click="login" type="submit" color="primary white--text" block :loading="loadingButton" large>
+                        <v-btn @click="login" type="submit" color="purple lighten-2 white--text" block :loading="loadingButton" large>
                             Ingresar
                         </v-btn>
 
                     </v-card-actions>
                     <v-card-actions class="justify-center">
-                        <v-btn @click="registrar" color="primary white--text" block :loading="loadingButton" large>
+                        <v-btn @click="registrar" color="grey darken-4 white--text" block :loading="loadingButton" large>
                             ¿No te has registrado?
                         </v-btn>
                     </v-card-actions>
 
                 </v-form>
             </v-card-text>
-        </v-card>
+        </v-card> 
         <FOOTER/>
     </v-app>
 </template>
@@ -101,6 +101,7 @@ export default {
         margin: auto;
     }
     .main {
-        background-color: #0d47a0 !important;
+        background-color: #fafafa !important;
     }
+
 </style>

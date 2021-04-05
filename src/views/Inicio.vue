@@ -3,14 +3,116 @@
     
     <APP_BAR/>
     <v-img
-      src="@/assets/img/inicio.png"
+      src="@/assets/img/home.jpg"
+      max-height="600"
       width="auto"
-      height="400"  
-      class="mb-5"
+      class="align-end mt-9 "
+      
     >
-    <v-btn @click="registrar" class="ml-9 button" dark outlined>Hazte miembro</v-btn>
+    <div class="image_port d-flex justify-center mb-5">
+      <v-btn @click="registrar" class="button mb-8" dark outlined>COMPRA AHORA</v-btn>
+    </div>
     </v-img>
-    <v-parallax 
+    <v-row no-gutters class="">
+      <v-col
+        sm="12"
+        lg="4"
+        cols="12"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          color="grey lighten-2"
+        >
+        <v-row>
+          
+          <v-col sm="4" lg="3">
+            <v-avatar tile size="65" class="ml-7 mt-3">
+              <img
+                alt="user"
+                src="@/assets/icons/camion.svg"
+              >
+            </v-avatar>
+          </v-col>
+          <v-col sm="8" lg="9">
+            <v-card-title class="propiedades">
+            ENVIO GRATIS
+          </v-card-title>
+          <v-card-subtitle class="propiedades_subtitle">
+            Gratis para todos los productos
+          </v-card-subtitle>
+          </v-col>
+        </v-row>
+        </v-card>
+      </v-col>
+       <v-col
+        cols="12"
+        sm="12"
+        lg="4"
+        class="card"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          color="grey lighten-2"
+        >
+        <v-row>
+          
+          <v-col sm="4" lg="3">
+            <v-avatar tile size="55" class="ml-7 mt-4">
+              <img
+                alt="user"
+                src="@/assets/icons/seguridad-activada.svg"
+              >
+            </v-avatar>
+          </v-col>
+          <v-col sm="8" lg="9">
+            <v-card-title class="propiedades">
+            COMPRAS SEGURAS
+          </v-card-title>
+          <v-card-subtitle class="propiedades_subtitle">
+            Disfrute de compras seguras
+          </v-card-subtitle>
+          </v-col>
+        </v-row>
+        </v-card>
+      </v-col>
+       <v-col
+        cols="12"
+        sm="12"
+        lg="4"
+      >
+        <v-card
+          class="pa-2 "
+          outlined
+          tile
+          color="grey lighten-2"
+        >
+        <v-row>
+          
+          <v-col sm="4" lg="3">
+            <v-avatar tile size="55" class="ml-7 mt-4">
+              <img
+                alt="user"
+                src="@/assets/icons/apoyo-tecnico.svg"
+              >
+            </v-avatar>
+          </v-col>
+          <v-col class="" sm="8" lg="9">
+            <v-card-title class="propiedades">
+            SOPORTE EN LINEA
+          </v-card-title>
+          <v-card-subtitle class="propiedades_subtitle">
+            Brindamos soporte en linea la mayor parte del dia
+          </v-card-subtitle>
+          </v-col>
+        </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
+    <!-- <v-parallax 
       src="@/assets/img/navidad.jpg" 
       class="ma-5"
     >
@@ -36,21 +138,23 @@
           </v-btn>
         </v-col>
       </v-row>
-    </v-parallax>
+    </v-parallax> -->
     <cards/>
+    <NUEVOS/>
     <FOOTER/>
   </v-app>
 </template>
 
 <script>
 
+import NUEVOS from "@/components/recien_llegados.vue";
 import cards from "@/components/cards.vue";
 import APP_BAR from "@/components/app_bar.vue";
 import FOOTER from "@/components/footer.vue";
 export default {
   name: 'Inicio',
   components: {
-    cards,APP_BAR,FOOTER
+    cards,APP_BAR,FOOTER,NUEVOS
   },
   methods: {
             registrar() {
@@ -73,9 +177,17 @@ export default {
 </script>
 
 <style scoped>
-.button{
-  position:relative;
-  left:122px;
-  top: 350px;
+@media only screen and (min-width: 768px){
+    .card{
+      border-right: solid 2px rgb(68, 68, 68) !important;
+      border-left: solid 2px rgb(68, 68, 68) !important;;
+    }
+}
+
+.propiedades{
+  font-size:  calc(0.7em + 0.5vw);
+}
+.propiedades_subtitle{
+  font-size:  calc(0.7em + 0.1vw);
 }
 </style>
