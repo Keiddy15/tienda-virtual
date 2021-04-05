@@ -43,7 +43,7 @@ export default {
     loadDataTable() {
       this.loadingData = !this.loadingData;
       this.data = [];
-      const path = 'http://localhost:5000/Admin/num_produc_cate'
+      const path = 'http://vibes-api.epizy.com/Admin/num_produc_cate'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
         for (let i = 0; i < this.categorias.length; i++) {

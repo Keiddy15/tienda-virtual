@@ -174,7 +174,7 @@ export default {
       this.$router.push({name: 'Inicio'});
     },
     insertar_cliente(){
-      const path = 'http://localhost:5000/Registro';
+      const path = 'http://vibes-api.epizy.com/Registro';
       axios.post(path, this.info_cliente).then((result) => {
         console.log('uwu',result)
       })

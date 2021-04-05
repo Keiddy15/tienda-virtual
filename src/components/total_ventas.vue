@@ -46,7 +46,7 @@ name: "Total_ventas",
     loadDataTable() {
       this.loadingData = !this.loadingData;
       this.data = [];
-      const path = 'http://localhost:5000/Admin/total_ventas'
+      const path = 'http://vibes-api.epizy.com/Admin/total_ventas'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
         this.titulo = 'Clientes'

@@ -75,7 +75,7 @@ export default {
                     this.$router.push({name: 'Admin'});
                 }else{
                     this.inicio_login.push(this.cedula)
-                    const path = 'http://localhost:5000/Login';
+                    const path = 'http://vibes-api.epizy.com/Login';
                     axios.post(path, this.inicio_login).then((result) => {
                         if(result.data!=null){
                             this.$router.push({name: 'Inicio'});
