@@ -58,7 +58,7 @@ export default {
     loadDataTable() {
       this.loadingData = !this.loadingData;
       this.data = [];
-      const path = 'http://localhost:5000/Admin/productos'
+      const path = 'http://vibes-api.epizy.com/Admin/productos'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
         this.titulo = 'Productos'

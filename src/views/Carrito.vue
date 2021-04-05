@@ -33,7 +33,7 @@
               :key="item"
           >
             <td>
-              <img align="center"  style="display:block" :src="item.src"
+              <img align="center"  style="display:block" alt="" :src="item.src"
                      height="80" >
             </td>
             <td>{{ item.id }}</td>
@@ -153,7 +153,7 @@ export default {
       this.total=this.$store.getters.cartTotal
       this.dialog=false;
       this.snackbar = true
-      const path = 'http://localhost:5000/Login';
+      const path = 'http://vibes-api.epizy.com/Login';
       axios.post(path, this.inicio_login).then((result) => {
         if (result.data != false) {
           this.info_venta.push({
@@ -175,7 +175,7 @@ export default {
           });
     },
     creacion_id() {
-      const path = 'http://localhost:5000/Admin/ventas'
+      const path = 'http://vibes-api.epizy.com/Admin/ventas'
       axios.get(path).then((respuesta) => {
 
         this.ventas = respuesta.data
@@ -185,7 +185,7 @@ export default {
       })
     },
     insertar_cliente() {
-      const path = 'http://localhost:5000/Ventas';
+      const path = 'http://vibes-api.epizy.com/Ventas';
       axios.post(path, this.info_venta).then((result) => {
         console.log('uwu', result)
       })
@@ -197,7 +197,7 @@ export default {
       this.$store.dispatch('removeProduct', index)
     },
     insertar_prod_vent(){
-      const path = 'http://localhost:5000/Prod_vent';
+      const path = 'http://vibes-api.epizy.com/Prod_vent';
       console.log('hola')
       axios.post(path, this.produc_vent).then((result) => {
         console.log('uwu', result)

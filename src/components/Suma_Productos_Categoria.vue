@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     loadDataTable() {
-      const path = 'http://localhost:5000/Productos_suma'
+      const path = 'http://vibes-api.epizy.com/Productos_suma'
       axios.get(path).then((respuesta) => {
         this.categorias = respuesta.data
         this.titulo = 'Productos'
